@@ -1,19 +1,17 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const FormRegister = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: left;
   gap: 20px;
-  margin: 20px auto;
 `;
 
-export const InputTitle = styled.p`
-  font-size: 16px;
+export const FormText = styled.p`
   margin-bottom: 5px;
 `;
 
-export const Input = styled.input`
+export const RegisterInput = styled.input`
   width: 300px;
   height: 40px;
   border: 1px solid #90cdf4;
@@ -21,8 +19,8 @@ export const Input = styled.input`
   padding: 10px;
 `;
 
-export const AddContactBtn = styled.button`
-  width: 120px;
+export const RegisterButton = styled.button`
+  width: 80px;
   height: 40px;
   display: flex;
   justify-content: center;

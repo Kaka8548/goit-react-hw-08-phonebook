@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FilterTitle } from './Filter.styled';
+import { FilterInput, FilterTitle } from './Filter.styled';
 import { getQuery } from 'redux/filter/slice';
 import { selectFilter } from 'redux/filter/selector';
 
@@ -14,7 +14,7 @@ export default function FilterByName() {
   return (
     <>
       <FilterTitle>Filter contacts by name</FilterTitle>
-      <input
+      <FilterInput
         onChange={getFilterQuery}
         type="text"
         name="filter"

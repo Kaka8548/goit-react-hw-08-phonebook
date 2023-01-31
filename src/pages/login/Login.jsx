@@ -2,20 +2,20 @@ import LoginForm from 'components/loginForm/LoginForm';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { LoginContainer } from './Login.styled';
 
 export default function Login() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <>
+    <LoginContainer>
       {isLoggedIn ? (
         <Navigate to={'/'} />
       ) : (
         <section>
-          <h1>Login page</h1>
           <LoginForm />
         </section>
       )}
-    </>
+    </LoginContainer>
   );
 }

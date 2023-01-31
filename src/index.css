@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap');
 
 body {
   margin: 0;
@@ -8,7 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  padding: 50px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 code {
@@ -19,8 +20,7 @@ code {
 h1,
 h2,
 h3,
-p,
-l {
+p {
   margin: 0;
   padding: 0;
 }

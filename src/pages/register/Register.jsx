@@ -1,12 +1,12 @@
 import RegisterForm from 'components/registerForm/RegisterForm';
+import { RegisterContainer } from './Register.styled';
 
 export default function Register() {
   return (
-    <>
+    <RegisterContainer>
       <section>
-        <h1>Register page</h1>
         <RegisterForm />
       </section>
-    </>
+    </RegisterContainer>
   );
 }

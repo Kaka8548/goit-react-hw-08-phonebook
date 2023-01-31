@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import {
+  FormRegister,
+  FormText,
+  RegisterButton,
+  RegisterInput,
+} from './RegisterForm.styled';
 
 export default function RegisterForm() {
   const [name, setName] = useState('');
@@ -26,10 +32,10 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <FormRegister onSubmit={handleSubmit}>
       <label>
-        <p>name</p>
-        <input
+        <FormText>name</FormText>
+        <RegisterInput
           name="name"
           type="text"
           required
@@ -38,8 +44,8 @@ export default function RegisterForm() {
         />
       </label>
       <label>
-        <p>email</p>
-        <input
+        <FormText>email</FormText>
+        <RegisterInput
           name="email"
           type="email"
           required
@@ -48,8 +54,8 @@ export default function RegisterForm() {
         />
       </label>
       <label>
-        <p>password</p>
-        <input
+        <FormText>password</FormText>
+        <RegisterInput
           name="password"
           type="password"
           required
@@ -57,7 +63,7 @@ export default function RegisterForm() {
           onChange={handleChange}
         />
       </label>
-      <button type="submit">register</button>
-    </form>
+      <RegisterButton type="submit">register</RegisterButton>
+    </FormRegister>
   );
 }

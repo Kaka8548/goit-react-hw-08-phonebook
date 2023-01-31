@@ -7,6 +7,11 @@ import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/operations';
 import { Loader } from 'components/loader/loader';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import {
+  ContactsContainer,
+  ContactsSubTitle,
+  ContactsTitle,
+} from './Contacts.styled';
 
 export default function Contacts() {
   const contacts = useSelector(selectContact);
@@ -21,10 +26,10 @@ export default function Contacts() {
   }, [isLoggedIn, dispatch]);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <ContactsContainer>
+      <ContactsTitle>Phonebook</ContactsTitle>
       <ContactForm />
-      <h2>Contacts</h2>
+      <ContactsSubTitle>Contacts</ContactsSubTitle>
       {contacts.length > 0 && (
         <>
           <Filter />
@@ -35,6 +40,6 @@ export default function Contacts() {
         <p>There are no contacts in your contact list. Try to make one.</p>
       )}
       {isLoading && <Loader />}
-    </div>
+    </ContactsContainer>
   );
 }

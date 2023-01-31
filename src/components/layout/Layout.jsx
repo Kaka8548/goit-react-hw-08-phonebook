@@ -2,36 +2,41 @@ import UserMenu from 'components/userMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { Header, NavList, NavListItem, UserNav } from './Layout.styled';
 
 export default function Layout() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <>
-      <header>
+      <Header>
         <nav>
-          <ul>
+          <NavList>
             <li>
-              <Link to="/">Home</Link>
+              <UserNav to="/">Home</UserNav>
             </li>
             {!isLoggedIn && (
               <>
                 <li>
-                  <Link to="login">Login</Link>
+                  <UserNav to="login">Login</UserNav>
                 </li>
                 <li>
-                  <Link to="register">Register</Link>
+                  <UserNav to="register">Register</UserNav>
                 </li>
               </>
             )}
             {isLoggedIn && (
-              <li>
-                <Link to="contacts">Contacts</Link>
-              </li>
+              <>
+                <li>
+                  <UserNav to="contacts">Contacts</UserNav>
+                </li>
+                <NavListItem>
+                  <UserMenu />
+                </NavListItem>
+              </>
             )}
-          </ul>
+          </NavList>
         </nav>
-        <UserMenu />
-      </header>
+      </Header>
       <main>
         <Outlet />
       </main>

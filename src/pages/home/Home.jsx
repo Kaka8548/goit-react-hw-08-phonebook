@@ -4,6 +4,7 @@ import {
   selectIsRefreshing,
   selectUser,
 } from 'redux/auth/selectors';
+import { HomeContainer } from './Home.styled';
 
 export default function Home() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -11,12 +12,11 @@ export default function Home() {
   const user = useSelector(selectUser);
 
   return (
-    <>
-      <div>Home Page</div>
+    <HomeContainer>
       {isLoggedIn && !isRefreshing && <p>Welcome, {user.name}!</p>}
       {!isLoggedIn && !isRefreshing && (
         <p>Hi, please log in or register to use phonebook</p>
       )}
-    </>
+    </HomeContainer>
   );
 }

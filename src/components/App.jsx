@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Home from 'pages/Home';
-import Login from 'pages/Login';
-import Register from 'pages/Register';
-import Contacts from 'pages/Contacts';
+import Home from 'pages/home/Home';
+import Login from 'pages/login/Login';
+import Register from 'pages/register/Register';
+import Contacts from 'pages/contacts/Contacts';
 import Layout from './layout/Layout';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
