@@ -5,7 +5,7 @@ const initialState = {
   user: { name: null, email: null },
   isLoggedIn: false,
   isRefreshing: false,
-
+  token: null,
   isLoading: false,
   error: null,
 };
@@ -22,6 +22,7 @@ export const authSlice = createSlice({
         state.user = payload.user;
         state.isLoading = false;
         state.isLoggedIn = true;
+        state.token = payload.token;
         state.error = null;
       })
       .addCase(register.rejected, (state, { payload }) => {
@@ -33,7 +34,7 @@ export const authSlice = createSlice({
       })
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;
-        localStorage.setItem('userData', JSON.stringify(payload.user));
+        state.token = payload.token;
         state.isLoading = false;
         state.isLoggedIn = true;
         state.error = null;
@@ -47,7 +48,8 @@ export const authSlice = createSlice({
       })
       .addCase(logOut.fulfilled, state => {
         state.user = { name: null, email: null };
-        localStorage.removeItem('userData');
+        state.token = null;
+
         state.isLoading = false;
         state.isLoggedIn = false;
         state.error = null;
@@ -60,8 +62,8 @@ export const authSlice = createSlice({
         state.isLoading = true;
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, state => {
-        state.user = JSON.parse(localStorage.getItem('userData'));
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {
+        state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
         state.error = null;
